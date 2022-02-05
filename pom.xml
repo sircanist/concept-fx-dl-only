@@ -32,6 +32,8 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <encoding>UTF-8</encoding>
+    <scala.version>2.12.9</scala.version>
+    <scala.compat.version>2.12</scala.compat.version>
     <bundles.url>https://lat.inf.tu-dresden.de/~francesco/conexp-fx/download/</bundles.url>
     <webstart.url>https://lat.inf.tu-dresden.de/~francesco/conexp-fx/webstart/${project.build.finalName}.html</webstart.url>
     <badge.style>flat</badge.style>
@@ -247,6 +249,16 @@
       </dependency> <dependency> <groupId>me.enkode</groupId> <artifactId>java8-converters_2.11</artifactId>
       <version>1.2.0-SNAPSHOT</version> </dependency> -->
     <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang.modules</groupId>
+      <artifactId>scala-parser-combinators_${scala.compat.version}</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
       <groupId>com.netflix.hollow</groupId>
       <artifactId>hollow</artifactId>
       <version>3.0.1</version>
@@ -261,6 +273,8 @@
   <build>
     <pluginManagement>
       <plugins>
+
+
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -350,6 +364,39 @@
           </fileSet> <fileSet> <sourceFile>src/main/deploy/package/macosx/conexp-fx.icns</sourceFile>
           <destinationFile>src/main/deploy/package/macosx/${project.build.finalName}.icns</destinationFile>
           </fileSet> </fileSets> </configuration> </execution> </executions> </plugin> -->
+
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>3.3.2</version>
+          <!-- <configuration> -->
+          <!-- <failOnError>false</failOnError> -->
+          <!-- <fork>false</fork> -->
+          <!-- <linksource>false</linksource> -->
+          <!-- <mainSourceDir>${project.build.sourceDirectory}</mainSourceDir> -->
+          <!-- <sourceDir>${project.build.sourceDirectory}</sourceDir> -->
+          <!-- <verbose>on</verbose> -->
+          <!-- <vscaladocVersion>1.0</vscaladocVersion> -->
+          <!-- </configuration> -->
+          <executions>
+            <execution>
+              <id>scala-compile-first</id>
+              <phase>process-resources</phase>
+              <!-- <phase>compile</phase> -->
+              <goals>
+                <goal>add-source</goal>
+                <goal>compile</goal>
+              </goals>
+              <configuration>
+                <args>
+                  <!-- <arg>-make:transitive</arg> -->
+                  <arg>-dependencyfile</arg>
+                  <arg>${project.build.directory}/.scala_dependencies</arg>
+                </args>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -533,6 +580,12 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>license-maven-plugin</artifactId>
       </plugin>
+
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
