@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0
+                          http://maven.apache.org/xsd/decoration-1.8.0.xsd"
+  name="${project.name}">
+
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.7</version>
+  </skin>
+
+  <custom>
+    <fluidoSkin>
+      <topBarEnabled>true</topBarEnabled>
+      <!-- <topBarContainerStyle>width: 66%;</topBarContainerStyle> -->
+      <topBarIcon>
+        <name>${project.name}</name>
+        <alt>${project.name}</alt>
+        <src>images/conexp-fx-banner-24x179-transparent.png</src>
+        <href>/index.html</href>
+      </topBarIcon>
+      <!-- <navBarStyle>navbar-inverse</navBarStyle> -->
+      <sideBarEnabled>true</sideBarEnabled>
+      <!-- <googleSearch /> -->
+      <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+      <breadcrumbDivider>»</breadcrumbDivider>
+    </fluidoSkin>
+  </custom>
+
+  <publishDate format="yyyy-MM-dd" position="right" />
+  <version position="right" />
+
+  <bannerLeft>
+    <!-- <name>${project.name}</name> <title>${project.name}</title> <src>images/conexp-fx-banner-48x288.png</src> -->
+    <name></name>
+    <title></title>
+  </bannerLeft>
+
+  <bannerRight>
+    <name></name>
+    <title></title>
+  </bannerRight>
+
+  <poweredBy>
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/github/license/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/travis/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/github/last-commit/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/github/languages/top/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/github/languages/count/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/github/languages/code-size/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+    <logo name="${project.name}" href="${project.scm.url}"
+      img="https://img.shields.io/github/repo-size/francesco-kriegel/conexp-fx.svg?style=${badge.style}" />
+  </poweredBy>
+
+  <body>
+    <head>
+      <![CDATA[<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true
+  }
+});
+</script>]]>
+      <![CDATA[<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML' async ></script>]]>
+    </head>
+    <menu name="Overview">
+      <item name="Introduction" href="index.html" />
+      <item name="Usage" href="usage.html" />
+      <item name="Examples" href="examples.html" />
+      <item name="Mathematical Background"
+        href="mathematical-background.html" />
+      <item name="Development" href="development.html" />
+      <item name="Referencing" href="referencing.html" />
+    </menu>
+    <menu name="Download">
+      <item name="Download Bundles" href="download.html" />
+      <!-- <item name="Download Bundles" href="${bundles.url}" /> -->
+      <item name="Java Web Start" href="webstart.html" />
+      <!-- <item name="Java WebStart" href="${webstart.url}" /> -->
+    </menu>
+    <menu ref="reports" />
+    <breadcrumbs>
+      <item name="Francesco Kriegel"
+        href="https://tu-dresden.de/ing/informatik/thi/lat/die-professur/beschaeftigte/francesco-kriegel/" />
+      <item name="Concept Explorer FX" href="${project.url}" />
+    </breadcrumbs>
+  </body>
+
+</project>

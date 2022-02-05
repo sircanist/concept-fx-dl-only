@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.8.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0
+                          http://maven.apache.org/xsd/decoration-1.8.0.xsd"
+  name="${project.name}">
+
+  <skin>
+    <groupId>lt.velykis.maven.skins</groupId>
+    <artifactId>reflow-maven-skin</artifactId>
+    <version>1.1.1</version>
+  </skin>
+
+  <custom>
+    <reflowSkin>
+      <smoothScroll>true</smoothScroll>
+      <theme>default</theme>
+      <brand>
+        <name>My Project</name>
+        <href>http://andriusvelykis.github.io/reflow-maven-skin/</href>
+      </brand>
+      <slogan>Super interesting project doing good things.</slogan>
+      <titleTemplate>%2$s | %1$s</titleTemplate>
+      <toc>top</toc>
+      <topNav>Download|reports</topNav>
+      <bottomNav>
+        <column>Main|Download</column>
+        <column>Documentation</column>
+        <column>reports|modules</column>
+      </bottomNav>
+      <bottomDescription>This is a very good project doing interesting
+        and valuable things.</bottomDescription>
+      <pages>
+        <index project="project-id">
+          <shortTitle>Welcome</shortTitle>
+          <breadcrumbs>false</breadcrumbs>
+          <toc>false</toc>
+          <sections>
+            <carousel />
+            <body />
+            <sidebar />
+            <thumbs>2</thumbs>
+            <columns>3</columns>
+          </sections>
+        </index>
+        <developer-info>
+          <toc>sidebar</toc>
+        </developer-info>
+      </pages>
+    </reflowSkin>
+  </custom>
+
+  <body>
+    <head>
+      <![CDATA[<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true
+  }
+});
+</script>]]>
+      <![CDATA[<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML' async ></script>]]>
+    </head>
+    <menu name="Overview">
+      <item name="Introduction" href="index.html" />
+      <item name="Usage" href="usage.html" />
+      <item name="Examples" href="examples.html" />
+      <item name="Mathematical Background"
+        href="mathematical-background.html" />
+      <item name="Referencing" href="referencing.html" />
+      <item name="License" href="license.html" />
+    </menu>
+    <menu name="Download">
+      <item name="Download Bundles" href="download.html" />
+      <!-- <item name="Download Bundles" href="${bundles.url}" /> -->
+      <item name="Java WebStart" href="webstart.html" />
+      <!-- <item name="Java WebStart" href="${webstart.url}" /> -->
+    </menu>
+    <menu name="Development">
+      <item name="Development" href="development.html" />
+      <item name="Source Code" href="${project.scm.url}" />
+      <item name="Report Issue" href="${issues.url}" />
+    </menu>
+    <menu ref="reports" />
+  </body>
+
+</project>
